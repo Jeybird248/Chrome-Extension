@@ -1,0 +1,27 @@
+html {
+	background-color: rgb(110, 2, 101);
+    color: white;
+    width: 625px;
+}
+h1{
+    text-align: center;
+}
+p{
+    text-align: center;
+}
+
+label {
+	font-size: 15px;
+}
+
+#filename {
+	padding: 10px;
+	font-size: 10px;
+}
+button{
+    margin: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    background: white;
+    color: rgb(24, 2, 44);
+}
