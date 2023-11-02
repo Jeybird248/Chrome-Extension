@@ -7,7 +7,6 @@ This project simplifies the process of converting videos to transcripts and gene
 
 ## Prerequisites
 
-- Node.js and npm installed
 - API credentials for video conversion
 
 ## Getting Started
