@@ -20,18 +20,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Check if the filename is not empty
         if (filename) {
-            // Start the API call sequence
-            initiateDownload(filename)
-                .then(data => initiateVideoToTranscript(data.videoFile))
-                .then(data => initiateTranscriptToNotes(data.transcript))
-                .then(pdfString => {
-                    // Use the downloadFileObject function to download the PDF
-                    downloadFileObject(pdfString, filename);
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    // Handle errors and provide user feedback
-                });
+            // Get the current tab's URL
+            chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+                const currentUrl = tabs[0].url;
+
+                // Check if the current URL is a YouTube link
+                if (isYouTubeLink(currentUrl)) {
+                    // Start the API call sequence if it's a YouTube link
+                    initiateDownload(filename, currentUrl)
+                        .then(data => initiateVideoToTranscript(data.videoFile))
+                        .then(data => initiateTranscriptToNotes(data.transcript))
+                        .then(pdfString => {
+                            // Use the downloadFileObject function to download the PDF
+                            downloadFileObject(pdfString, filename);
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            // Handle errors and provide user feedback
+                        });
+                }
+            });
         }
     });
 
@@ -44,8 +52,14 @@ document.addEventListener('DOMContentLoaded', function () {
         downloadButton.disabled = true;
     });
 
+    // Function to check if a URL is a YouTube link
+    function isYouTubeLink(url) {
+        // You can use a simple pattern matching here to identify YouTube links
+        return /(?:youtube\.com|youtu\.be)/.test(url);
+    }
+
     // Function to initiate the download
-    function initiateDownload(filename) {
+    function initiateDownload(filename, currentUrl) {
         return fetch('YOUR_API_ENDPOINT_FOR_DOWNLOADING_VIDEO', {
             method: 'POST',
             headers: {
@@ -53,7 +67,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 'Authorization': 'YOUR_AUTH_TOKEN' // Use the provided credentials
             },
             body: JSON.stringify({
-                filename: filename
+                filename: filename,
+                url: currentUrl // Pass the current URL to the API
             })
         })
             .then(response => response.json())
