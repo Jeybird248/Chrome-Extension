@@ -5,7 +5,7 @@ A project to streamline video to transcript conversion with automatic PDF note g
 
 This project simplifies the process of converting videos to transcripts and generating PDFs from the transcripts.
 
-![](https://github.com/Jeybird248/Chrome-Extension/blob/main/demo.mp4)
+https://github.com/Jeybird248/Chrome-Extension/assets/69325815/892a1799-9bb8-4350-87ee-37d55335d436
 
 ## Prerequisites
 
