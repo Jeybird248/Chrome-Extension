@@ -5,7 +5,7 @@ A project to streamline video to transcript conversion with automatic PDF note g
 
 This project simplifies the process of converting videos to transcripts and generating PDFs from the transcripts.
 
-[](demo.mp4)
+![](demo.mp4)
 
 ## Prerequisites
 
