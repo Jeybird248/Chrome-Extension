@@ -62,7 +62,3 @@ https://github.com/Jeybird248/Chrome-Extension/assets/69325815/892a1799-9bb8-435
   - Status 200: Successful response with the `notes` property containing the organized notes in a string format.
   - Status 400: Bad request with an error message.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
