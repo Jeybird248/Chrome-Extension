@@ -9,11 +9,12 @@
     },
     "permissions": [
         "downloads",
+        "storage",
+        "tabs",
+        "scripting",
         "activeTab"
     ], 
-    "background" : {
-        "service_worker" : "background.js"
-    },
+    "host_permissions": ["https://llama.k8s-gosha.atlas.illinois.edu/*"],
     "icons": {
         "16": "images/icon-16.png",
         "32": "images/icon-32.png",
