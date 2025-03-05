@@ -37,11 +37,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     .then((transcriptionData) => {
                         alert('Step 1: Transcription successful');
                         // Use the transcribed text for the llama API call
-                        return fetch('https://llama.k8s-gosha.atlas.illinois.edu/completion', {
+                        return fetch(HOSTED_URL, {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
-                                'Authorization': 'Basic YXRsYXNhaXRlYW06anhAVTJXUzhCR1Nxd3U=',
+                                'Authorization': '',
                             },
                             body: JSON.stringify({
                                 prompt: '<s>[INST]Generate a summary with bullet points for the following text: ' + transcriptionData.transcript + '[/INST]',
